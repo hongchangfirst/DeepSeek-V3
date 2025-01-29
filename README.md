@@ -278,12 +278,19 @@ Navigate to the `inference` folder and install dependencies listed in `requireme
 ```shell
 cd DeepSeek-V3/inference
 
+#install openssl
+sudo yum install -y openssl-devel     
+sudo find / -name openssl
+
+
 
 #install python 3.10
 curl -O https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 tar -xvf Python-3.10.0.tgz
 cd Python-3.10.0
-./configure --enable-optimizations
+# ./configure --enable-optimizations
+./configure --with-openssl=/usr/bin/openssl
+
 make -j 4  # Adjust '4' based on the number of CPU cores in your system
 sudo make altinstall
 python3.10 --version
