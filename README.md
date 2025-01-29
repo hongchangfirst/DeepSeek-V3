@@ -277,6 +277,11 @@ Navigate to the `inference` folder and install dependencies listed in `requireme
 
 ```shell
 cd DeepSeek-V3/inference
+
+curl https://bootstrap.pypa.io/pip/3.7/get-pip.py -o get-pip.py
+sudo python3 get-pip.py 
+pip install torch --index-url https://pypi.org/simple
+
 pip install -r requirements.txt
 ```
 
