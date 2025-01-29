@@ -278,10 +278,25 @@ Navigate to the `inference` folder and install dependencies listed in `requireme
 ```shell
 cd DeepSeek-V3/inference
 
-curl https://bootstrap.pypa.io/pip/3.7/get-pip.py -o get-pip.py
-sudo python3 get-pip.py 
-pip install torch --index-url https://pypi.org/simple
 
+#install python 3.10
+curl -O https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+tar -xvf Python-3.10.0.tgz
+cd Python-3.10.0
+./configure --enable-optimizations
+make -j 4  # Adjust '4' based on the number of CPU cores in your system
+sudo make altinstall
+python3.10 --version
+# add python 3.10 into shell path
+
+python -m ensurepip --upgrade
+# add pip3.10 into shell path
+pip3.10 install -r requirements.txt
+
+# curl https://bootstrap.pypa.io/pip/3.7/get-pip.py -o get-pip.py
+# sudo python get-pip.py 
+
+# pip install torch --index-url https://pypi.org/simple
 pip install -r requirements.txt
 ```
 
